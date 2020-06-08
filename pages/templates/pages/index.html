@@ -6,25 +6,6 @@
 
 <a href="{% url 'list' %}">LIST</a>
 
-
-<form method="POST">
-{% csrf_token %}
-<center>
-<div class="col-lg-6">
-    <div class="form-group">
-        {% for a in content %}
-                <a href="{% url 'list' %}">CLICK HERE FOR UPDATE</a>
-        {% empty %}
-                <textarea class="form-control" id="letter" name="letter" rows="50" cols="95" required>
-                </textarea>
-        {% endfor %}
-    </div>
-</div>
-<input type="hidden" id="name" name="name" value="{{user.username}}" required>
-<input type="submit" name="add" >
-</center>
-</form>
-
 {% endblock content %}
 
 
