@@ -1,0 +1,9 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+{% for a in data %}
+    <h3>{{a.date_create}}</h3>
+    
+    <a href="/listdisplay/{{a.id}}">DISPLAY</a>
+{% endfor %}
+{% endblock content %}

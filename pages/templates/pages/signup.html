@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP PAGE</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="first-name">ENTER FIRST NAME</label>
+        <input type="text" name="first-name" id="first-name"><br>
+        <label for="last-name">ENTER LAST NAME</label>
+        <input type="text" name="last-name" id="last-name"><br>
+        <label for="email">ENTER YOUR EMAIL</label>
+        <input type="email" name="email" id="email"><br>
+        <label for="username">USERNAME</label>
+        <input type="text" name="username" id="username"><br>
+        <label for="password">PASSWORD</label>
+        <input type="text" name="password" id="password"><br>
+        <label for="repeat-pwd">REPEAT PASSWORD</label>
+        <input type="text" name="repeat-pwd" id="repeat-pwd"><br>
+        <input type="submit" name="signup">
+    </form>
+</body>
+</html>

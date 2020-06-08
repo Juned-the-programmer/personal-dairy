@@ -1,0 +1,18 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+
+<form method="POST">
+{% csrf_token %}
+<center>
+<div class="col-lg-6">
+    <div class="form-group">
+        <textarea class="form-control" id="name" name="name" rows="50" cols="130" >
+        {{content.desc}}
+        </textarea>
+    </div>
+</div>
+<input type="submit" name="add">
+</center>
+</form>
+{% endblock content %}
