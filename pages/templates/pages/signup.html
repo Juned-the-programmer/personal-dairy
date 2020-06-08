@@ -1,26 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGNUP PAGE</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="first-name">ENTER FIRST NAME</label>
-        <input type="text" name="first-name" id="first-name"><br>
-        <label for="last-name">ENTER LAST NAME</label>
-        <input type="text" name="last-name" id="last-name"><br>
-        <label for="email">ENTER YOUR EMAIL</label>
-        <input type="email" name="email" id="email"><br>
-        <label for="username">USERNAME</label>
-        <input type="text" name="username" id="username"><br>
-        <label for="password">PASSWORD</label>
-        <input type="text" name="password" id="password"><br>
-        <label for="repeat-pwd">REPEAT PASSWORD</label>
-        <input type="text" name="repeat-pwd" id="repeat-pwd"><br>
-        <input type="submit" name="signup">
-    </form>
-</body>
-</html>
+{% extends 'pages/base.html' %}
+
+{% block title %}
+SIGNUP
+{% endblock title %}
+
+{% block content %}
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row m-b-55">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-20">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="first_name">
+                                            <label class="label--desc">first name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-20">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="last_name">
+                                            <label class="label--desc">last name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Username</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="password" name="password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Repeat Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="password" name="repeat-pwd">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

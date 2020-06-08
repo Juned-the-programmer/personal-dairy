@@ -9,23 +9,8 @@ def index(request):
     a = datetime.datetime.now()
     b = a.date()
     # print(b)
-    if User.is_authenticated:
-        user = request.user.username 
-        print(user)
-    if request.method=='POST':
-        letter = request.POST['letter']
-        name = request.POST['name']
-        print(name)
-        Diary = diary (
-            desc = letter,
-            name = request.user.username
-        )
-        Diary.save()
-    
-    content = diary.objects.filter(name=user).filter(date_create=b)
     context = {
-        'b' : b,
-        'content' : content
+        'b' : b
     }
     return render(request,'pages/index.html',context)
 
@@ -86,3 +71,26 @@ def listdisplay(request,pk):
 def logout(request):
     auth.logout(request)
     return render(request,'pages/index.html')
+
+def dairy(request):
+    a = datetime.datetime.now()
+    b = a.date()
+    if User.is_authenticated:
+        user = request.user.username 
+        print(user)
+    if request.method=='POST':
+        letter = request.POST['letter']
+        name = request.POST['name']
+        print(name)
+        Diary = diary (
+            desc = letter,
+            name = request.user.username
+        )
+        Diary.save()
+    
+    content = diary.objects.filter(name=user).filter(date_create=b)
+    context = {
+        'b' : b,
+        'content' : content
+    }
+    return render(request,'pages/diary.html',context)

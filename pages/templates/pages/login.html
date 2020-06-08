@@ -1,18 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN PAGE</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        <label for="username">USERNAME</label>
-        <input type="text" name="username" id="username"><br>
-        <label for="password">PASSWORD</label>
-        <input type="password" name="password" id="password"><br>
-        <input type="submit" name="login">
-    </form>
-</body>
-</html>
+{% extends 'pages/base.html' %}
+
+{% block title %}
+LOGIN PAGE
+{% endblock title %}
+
+{% block content %}
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Login Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Username</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="password" name="password">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

@@ -1,5 +1,9 @@
 {% extends 'pages/base.html' %}
 
+{% block title %}
+HOME PAGE
+{% endblock title %}
+
 {% block content %}
 <h1>DAIRY</h1>
 <h1>{{b}}</h1>
@@ -7,5 +11,3 @@
 <a href="{% url 'list' %}">LIST</a>
 
 {% endblock content %}
-
-
