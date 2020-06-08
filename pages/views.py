@@ -4,6 +4,7 @@ import datetime
 from .models import diary
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User,auth
+from django.contrib import messages
 # Create your views here.
 def index(request):
     a = datetime.datetime.now()
@@ -42,6 +43,7 @@ def login(request):
 
     return render(request,'pages/login.html')
 
+@login_required(login_url='login')
 def list(request):
     if User.is_authenticated:
         user = request.user.username 
@@ -53,6 +55,7 @@ def list(request):
     }
     return render(request,'pages/list.html',context)
 
+@login_required(login_url='login')
 def listdisplay(request,pk):
     if request.method == 'POST':
         name = request.POST['name']
@@ -72,21 +75,27 @@ def logout(request):
     auth.logout(request)
     return render(request,'pages/index.html')
 
+@login_required(login_url='login')
 def dairy(request):
     a = datetime.datetime.now()
     b = a.date()
+
     if User.is_authenticated:
         user = request.user.username 
         print(user)
+
     if request.method=='POST':
         letter = request.POST['letter']
         name = request.POST['name']
         print(name)
-        Diary = diary (
-            desc = letter,
-            name = request.user.username
-        )
-        Diary.save()
+        if letter is None:
+            messages.error(request,'Enter something in this')
+        else:
+            Diary = diary (
+                desc = letter,
+                name = request.user.username
+            )
+            Diary.save()
     
     content = diary.objects.filter(name=user).filter(date_create=b)
     context = {

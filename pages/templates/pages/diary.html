@@ -8,12 +8,9 @@ DAIRY PAGE
 <h1>DAIRY</h1>
 <h1>{{b}}</h1>
 
-<a href="{% url 'list' %}">LIST</a>
-
-
 <form method="POST">
 {% csrf_token %}
-<center>
+{% comment %} <center>
 <div class="col-lg-6">
     <div class="form-group">
         {% for a in content %}
@@ -21,14 +18,49 @@ DAIRY PAGE
         {% empty %}
                 <textarea class="form-control" id="letter" name="letter" rows="50" cols="95" required>
                 </textarea>
-                <input type="submit" name="add" >
+                <input type="submit" name="add" class="btn btn--radius-2 btn--red">
         {% endfor %}
     </div>
 </div>
 <input type="hidden" id="name" name="name" value="{{user.username}}" required>
-</center>
+</center> {% endcomment %}
 </form>
-
+{% csrf_token %}
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="value">
+                                <div class="input-group">
+                                    {% for a in content %}
+                                            <a href="{% url 'list' %}">CLICK HERE FOR UPDATE</a>
+                                    {% empty %}
+                                            <textarea class="form-control" id="letter" name="letter" rows="50" cols="95" required>
+                                            </textarea>
+                                            {% comment %} <input type="submit" name="add" class="btn btn--radius-2 btn--red"> {% endcomment %}
+                                    {% endfor %}
+                                    <input type="hidden" id="name" name="name" value="{{user.username}}" required>
+                                </div>
+                            </div>
+                        </div>
+                        {% for a in content %}
+                            {% comment %} <a href="{% url 'list' %}">CLICK HERE FOR UPDATE</a> {% endcomment %}
+                        {% empty %}
+                            <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                            </div>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
 
 

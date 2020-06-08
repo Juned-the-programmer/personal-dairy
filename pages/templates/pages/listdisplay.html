@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form method="POST">
+{% comment %} <form method="POST">
 {% csrf_token %}
 <center>
 <div class="col-lg-6">
@@ -10,9 +10,35 @@
         <textarea class="form-control" id="name" name="name" rows="50" cols="130" >
         {{content.desc}}
         </textarea>
+        <input type="submit" name="add" class="btn btn--radius-2 btn--red">
     </div>
 </div>
-<input type="submit" name="add">
 </center>
-</form>
+</form> {% endcomment %}
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="value">
+                                <div class="input-group">
+                                    <textarea class="form-control" id="name" name="name" rows="50" cols="130" >
+                                    {{content.desc}}
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
