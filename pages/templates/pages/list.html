@@ -6,20 +6,31 @@
     
     <a href="/listdisplay/{{a.id}}">DISPLAY</a>
 {% endfor %}  {% endcomment %}
-<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-        <div class="wrapper wrapper--w790">
-            <div class="card card-5">
-                <div class="card-heading">
-                    <h2 class="title">Registration Form</h2>
-                </div>
-                <div class="card-body">
-                    {% for a in data %}
-                        <h3>{{a.date_create}}</h3>
-                        
-                        <a href="/listdisplay/{{a.id}}">DISPLAY</a>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								{% comment %} <th class="column1">No</th> {% endcomment %}
+								<th class="column2">Date</th>
+								<th class="column3">Task</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr>
+                                {% for a in data %}
+									{% comment %} <td class="column1">{{current_page.start_index|add:forloop.counter0}}</td> {% endcomment %}
+									<td class="column2">{{a.date_create}}</td>
+									<td class="column3"><a href="/listdisplay/{{a.id}}">DISPLAY</a></td>
+								</tr>
+								{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
 {% endblock content %}

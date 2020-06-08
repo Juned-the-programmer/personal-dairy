@@ -16,7 +16,11 @@
     <!-- Vendor CSS-->
     <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
-
+    <link href="{% static 'css/tabler.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css/util.css' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
     <!-- Main CSS-->
     <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
     <title>{% block title %}
@@ -24,6 +28,7 @@
   </head>
   <body>
     {% include 'pages/menu.html' %}
+    {% include 'pages/messages.html' %}
     {% block content %}
     {% endblock content %}
     <!-- Optional JavaScript -->
@@ -40,5 +45,9 @@
     <!-- Main JS-->
     <script src="{% static 'js/global.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>

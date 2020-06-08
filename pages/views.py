@@ -40,6 +40,8 @@ def login(request):
         if user is not None:
             auth.login(request,user)
             return redirect('index')
+        else:
+            messages.error(request,'Enter Valid username and password')
 
     return render(request,'pages/login.html')
 
