@@ -5,8 +5,8 @@ DAIRY PAGE
 {% endblock title %}
 
 {% block content %}
-<h1>DAIRY</h1>
-<h1>{{b}}</h1>
+{% comment %} <h1>DAIRY</h1>
+<h1>{{b}}</h1> {% endcomment %}
 
 <form method="POST">
 {% csrf_token %}
@@ -30,7 +30,7 @@ DAIRY PAGE
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Registration Form</h2>
+                    <h2 class="title">Your Personal Diary</h2>
                 </div>
                 <div class="card-body">
                     <form method="POST">
@@ -53,7 +53,7 @@ DAIRY PAGE
                             {% comment %} <a href="{% url 'list' %}">CLICK HERE FOR UPDATE</a> {% endcomment %}
                         {% empty %}
                             <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Save</button>
                             </div>
                         {% endfor %}
                     </form>

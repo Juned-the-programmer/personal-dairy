@@ -5,13 +5,19 @@ from .models import diary
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
+import calendar
 # Create your views here.
 def index(request):
     a = datetime.datetime.now()
-    b = a.date()
+    # b = a.date()
     # print(b)
+    month = a.month
+    year = a.year
+    c = calendar.TextCalendar(calendar.MONDAY)
     context = {
-        'b' : b
+        'month' : month,
+        'year' : year,
+        'c' : c
     }
     return render(request,'pages/index.html',context)
 
